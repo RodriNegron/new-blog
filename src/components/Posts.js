@@ -14,16 +14,14 @@ function Posts() {
     }, [])
 
     return (
-        <div>
-            <div className="py-5">
-                <div className="container">
-                    <div className="row hidden-md-up">
-                        {
-                            posts.map( (row,i) =>{
-                                return <PostCard {...row} key={i}/>
-                            })
-                        }
-                    </div>
+        <div className="py-5">
+            <div className="container">
+                <div className="row hidden-md-up">
+                    {
+                        posts.map( (row,i) =>{
+                            return <PostCard {...row} key={i}/>
+                        })
+                    }
                 </div>
             </div>
         </div>
