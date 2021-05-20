@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ErrorMessage, Formik, Form } from 'formik';
 import TextField from '../components/TextField';
 import * as Yup from 'yup';
-import { login } from '../services/login';
+import {connect} from 'react-redux';
+import {loginUser} from '../auth/actions/users';
+import {useHistory} from 'react-router-dom';
 
-function LoginForm(props) {
-    const [errorMsg, setErrorMsg] = useState(null)
+function LoginForm({loginUser}) {
 
     const validate = Yup.object({
         email: Yup.string()
@@ -16,21 +17,10 @@ function LoginForm(props) {
             .required("Password is required"),
     })
 
-      const handleLogin = async (event) => {
-        try{
-            const user = await login(
-                props)
-            
-        }catch(e){
-            setErrorMsg('Wrong credentials')
-            setTimeout(()=>{
-                setErrorMsg(null)
-            }, 5000)
-        }
-    }  
-    
+    const history = useHistory();
+
     return (
-        <div >
+        <div>
             <Formik
                 initialValues={
                     {
@@ -38,8 +28,9 @@ function LoginForm(props) {
                         password: ''
                     }
                 }
-                onSubmit={ (values) => {
-                   login(values)
+                onSubmit={(values, {setSubmitting, setFieldError}) => {
+                   loginUser(values, history,
+                     setFieldError, setSubmitting);
                 }}
                 validationSchema={validate}
                 >
@@ -74,4 +65,4 @@ function LoginForm(props) {
 }
 
 
-export default LoginForm;
+export default connect(null,{loginUser})(LoginForm);

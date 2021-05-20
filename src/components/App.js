@@ -1,38 +1,40 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Home from '../pages/Home';
 import LoginForm from '../pages/LoginForm';
 import NewPost from '../pages/NewPost';
-
 import '../assets/css/App.css';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route
+  Switch
 } from 'react-router-dom'
+import AuthRoutes from './AuthRoutes';
+import BasicRoutes from './BasicRoutes';
+import {connect} from 'react-redux';
 
 
-function App() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [user, setUser] = useState(null)
+function App({checked}) {
+ 
   return (
     <Router>
+      {checked &&
       <Switch>
-        <Route path="/login">
-          <LoginForm
-            email={email}
-            password={password}
-          />
-        </Route>
-        <Route path="/newpost">
+        <BasicRoutes path="/login">
+          <LoginForm/>
+        </BasicRoutes>
+        <AuthRoutes path="/newpost">
           <NewPost/>
-        </Route>
-        <Route path="/">
+        </AuthRoutes>
+        <AuthRoutes path="/">
           <Home/>
-        </Route>
+        </AuthRoutes>
       </Switch>
+      }
     </Router>
   );
 }
 
-export default App;
+const mapStateToProps = ({session}) =>({
+  checked: session.checked
+})
+
+export default connect(mapStateToProps)(App);
