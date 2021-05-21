@@ -20,14 +20,14 @@ function App({checked}) {
     <Router>
       {checked &&
       <Switch>
-        <BasicRoutes path="/login" exact>
+        <BasicRoutes path="/login">
           <LoginForm/>
         </BasicRoutes>
-        <AuthRoutes path="/:id">
-          <PostDetail/>
-        </AuthRoutes>
         <AuthRoutes path="/newpost">
           <NewPost/>
+        </AuthRoutes>
+        <AuthRoutes path="/:id">
+          <PostDetail/>
         </AuthRoutes>
         <AuthRoutes path="/">
           <Home/>

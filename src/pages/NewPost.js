@@ -20,13 +20,47 @@ const NewPost = () => {
     }
 
     return (
+        
         <div >
             <NavBar/>
-            <form onSubmit={handleSubmit}>
-                <input type='text' onChange={handleChange} value={newPost}></input>
-                <button>Post new entry</button>
-            </form>
-        </div>
+            <div>
+
+            </div>
+            
+            <div className="container py-5">
+             <div className="text-center">
+              <h1 className="display-7">Create new post</h1>
+             </div>
+              <div className="col-lg-7 mx-auto">
+                <div className="card shadow mb-4">
+                 <div className="card-body p-5">
+                  
+                  <form onSubmit={handleSubmit}>
+        		    
+    		    <div className="form-group">
+    		        <label for="title">Title <span className="require">*</span></label>
+                    <input type='text' className="form-control" onChange={handleChange} value={newPost} required></input>	    
+    		    </div>
+    		    
+    		    <div className="form-group">
+    		        <label for="description">Description</label>
+    		        <textarea rows="5" className="form-control" name="description" ></textarea>
+    		    </div>
+    		        		    
+    		    <div className="form-group m-2">
+    		        <button type="submit" className="btn btn-primary">
+    		            Create
+    		        </button>
+    		        <button className="btn btn-default">
+    		            Cancel
+    		        </button>
+    		    </div>
+    		    </form>
+             </div>
+		</div>
+		</div>
+	</div>
+</div>
     );
 }
 

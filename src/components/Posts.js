@@ -1,17 +1,28 @@
 import React, {useState,useEffect} from 'react';
 import PostCard from './PostCard';
-import { getAllPosts } from '../services/posts';
+import { deletePost, getAllPosts } from '../services/posts';
 
 function Posts() {
 
     const [posts, setPosts] = useState([]);
 
     useEffect(() =>{
-        getAllPosts()
-        .then(posts =>{
-            setPosts(posts)
-        })
+        const getAll = async () =>{
+            const allPosts = await getAllPosts();
+            if(allPosts) setPosts(allPosts)
+        }
+        getAll()
     }, [])
+
+    /* const id =2; */
+
+    const removePostHandler = async (id) => {
+        await deletePost(id);
+        const postList = posts.filter((post) =>{
+            return post.id != id;
+        });
+        setPosts(postList)
+    }
 
     return (
     <div className="py-5">
