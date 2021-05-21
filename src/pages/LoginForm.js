@@ -3,7 +3,7 @@ import { ErrorMessage, Formik, Form } from "formik";
 import TextField from "../components/TextField";
 import * as Yup from "yup";
 import { connect } from "react-redux";
-import { loginUser } from "../auth/actions/users";
+import { loginUser } from "../redux/actions/users";
 import { useHistory } from "react-router-dom";
 
 function LoginForm({ loginUser }) {

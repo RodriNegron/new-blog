@@ -47,8 +47,6 @@ const NewPost = () => {
 
                     <div className="form-group">
                       <TextField
-                        textarea
-                        rows="5"
                         className="form-control"
                         label="Body"
                         name="body"

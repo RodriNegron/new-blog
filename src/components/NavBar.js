@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { logoutUser } from "../auth/actions/users";
+import { logoutUser } from "../redux/actions/users";
 
 const NavBar = ({ logoutUser }) => {
   const history = useHistory();
