@@ -8,7 +8,7 @@ import { selectedPost,removeSelectedPost } from "../redux/actions/postsActions";
 const PostDetail = () => {
   const post = useSelector((state) => state.posts);
   const { title,body } = post;
-  console.log("post",post)
+  //console.log("post",post)
   const { id } = useParams();
   const dispatch = useDispatch();
 
