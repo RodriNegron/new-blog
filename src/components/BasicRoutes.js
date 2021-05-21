@@ -1,7 +1,7 @@
 // Dashboard cannot be accessed unless logged in
 
-import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { Route, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
 const BasicRoutes = ({ children, authenticated, ...rest }) => {
   return (
@@ -13,7 +13,7 @@ const BasicRoutes = ({ children, authenticated, ...rest }) => {
         ) : (
           <Redirect
             to={{
-              pathname: '/',
+              pathname: "/",
               state: { from: location },
             }}
           />
