@@ -9,16 +9,13 @@ const NewPost = () => {
         setNewPost(event.target.value)
     }
 
-    /* const {token} = user */
-
     const handleSubmit = (event)=>{
         event.preventDefault();
         const postToAdd = {
             title: newPost,
             body: newPost
         }
-
-        createPost(postToAdd, /* {token} */)
+        createPost(postToAdd)
     }
 
     return (

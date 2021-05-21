@@ -13,7 +13,7 @@ function LoginForm({loginUser}) {
             .email('Must be a valid e-mail')
             .required("Email is required"),
         password: Yup.string()
-            .min(8,'Password must be at least 8 characters')
+            .min(4,'Password must be at least 4 characters')
             .required("Password is required"),
     })
 
