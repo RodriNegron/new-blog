@@ -1,5 +1,15 @@
-.card{
+.card {
   height: 100%;
+}
+
+.card-body{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.btn-group {
+  display: flex;
 }
 
 .image-profile {
@@ -59,8 +69,6 @@ body {
 }
 
 
-/* TABS */
-
 h2.inactive {
   color: #cccccc;
 }
@@ -69,9 +77,6 @@ h2.active {
   color: #0d0d0d;
   border-bottom: 2px solid #5fbae9;
 }
-
-
-/* FORM TYPOGRAPHY*/
 
 
 #wa:hover, #wa[type=submit]:hover, #wa[type=reset]:hover  {
@@ -116,10 +121,8 @@ h2.active {
   color: #cccccc;
 }
 
-
 /* ANIMATIONS */
 
-/* Simple CSS3 Fade-in-down Animation */
 .fadeInDown {
   -webkit-animation-name: fadeInDown;
   animation-name: fadeInDown;

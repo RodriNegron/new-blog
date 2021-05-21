@@ -10,6 +10,8 @@ import {
 import AuthRoutes from './AuthRoutes';
 import BasicRoutes from './BasicRoutes';
 import {connect} from 'react-redux';
+import PostDetail from '../pages/PostDetail';
+
 
 
 function App({checked}) {
@@ -18,9 +20,12 @@ function App({checked}) {
     <Router>
       {checked &&
       <Switch>
-        <BasicRoutes path="/login">
+        <BasicRoutes path="/login" exact>
           <LoginForm/>
         </BasicRoutes>
+        <AuthRoutes path="/:id">
+          <PostDetail/>
+        </AuthRoutes>
         <AuthRoutes path="/newpost">
           <NewPost/>
         </AuthRoutes>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar'
-import { createPost } from '../services/createPosts';
+import { createPost } from '../services/posts';
 
 const NewPost = () => {
     const [newPost, setNewPost] = useState('')
@@ -15,6 +15,7 @@ const NewPost = () => {
             title: newPost,
             body: newPost
         }
+
         createPost(postToAdd)
     }
 

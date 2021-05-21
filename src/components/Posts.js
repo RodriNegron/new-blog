@@ -1,6 +1,6 @@
 import React, {useState,useEffect} from 'react';
 import PostCard from './PostCard';
-import { getAllPosts } from '../services/getAllPosts';
+import { getAllPosts } from '../services/posts';
 
 function Posts() {
 
